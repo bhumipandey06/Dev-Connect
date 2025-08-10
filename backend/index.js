@@ -3,7 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const formRoutes = require("./routes/formRoutes");
-
+const auth = require("./routes/auth")
 
 dotenv.config();
 const PORT = process.env.PORT;
@@ -22,6 +22,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/form", formRoutes);
+app.use("/api/auth", auth);
+
 
 // Start server
 app.listen(PORT, () => {
